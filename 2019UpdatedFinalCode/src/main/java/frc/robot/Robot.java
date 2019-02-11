@@ -26,7 +26,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.BallSuccBlow;
 import frc.robot.commands.ExampleCommand;
-import frc.robot.commands.MoveArm;
 import frc.robot.subsystems.*;
 
 
@@ -42,9 +41,7 @@ public class Robot extends TimedRobot {
   public static OI m_oi;
   public static BallIntake ballIntake = new BallIntake();
   public static DriveTrain driveTrain = new DriveTrain();
-  public static Arm arm = new Arm();
   public static Flap flap = new Flap();
-  public static Potentiometer potentiometer = new Potentiometer();
   public static LimitSwitch limitSwitch = new LimitSwitch();
   ArcadeDrive drive = new ArcadeDrive();
 
@@ -58,7 +55,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_oi = new OI();
-
+    System.out.println(m_oi.xbox.getPort());
     CameraServer.getInstance().startAutomaticCapture();
 
     m_chooser.setDefaultOption("Default Auto", new ExampleCommand());

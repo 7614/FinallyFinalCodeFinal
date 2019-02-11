@@ -14,7 +14,6 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.*;
 import frc.robot.commands.BallSuccBlow;
-import frc.robot.commands.MoveArm;
 import frc.robot.commands.*;
 
 /**
@@ -60,12 +59,9 @@ public class OI {
   Button ballSuccButton     = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_A);
   Button ballBlowButton     = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_B);
   Button releaseHatchButton = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_X);
-    
  
 
   public OI() {
-    liftUpButton.whenPressed(new MoveArm(1));
-    liftDownButton.whenPressed(new MoveArm(-1));
     ballBlowButton.whenPressed(new BallSuccBlow(1));
     ballBlowButton.whenPressed(new BallSuccBlow(-1));
     // releaseHatchButton.whenPressed(new Release());

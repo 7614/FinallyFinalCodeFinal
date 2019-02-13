@@ -27,18 +27,18 @@ public class RobotMap {
   public static final int FRONTLEFTMOTOR = 2;
   public static final int BACKRIGHTMOTOR = 3;
   public static final int BACKLEFTMOTOR = 4;
-  public static final int JOYSTICKPORT = 1;
+  public static final int JOYSTICKPORT = 2;
   public static final int BALLINTAKE = 9;
   public static final int FLAPUPPERLIMITSWITCH = 16;
   public static final int FLAPLOWERLIMITSWITCH = 17;
   public static final int HATCHMOTOR =18;
 
   public class XBOX {
-    public static final int BUMPER_L = 13;
-    public static final int BUMPER_R = 14;
-    public static final int BUTTON_A = 16;
-    public static final int BUTTON_B = 17;
-    public static final int BUTTON_X = 18;
-    public static final int BUTTON_Y = 19; 
+    public static final int BUMPER_L = 5;
+    public static final int BUMPER_R = 6;
+    public static final int BUTTON_A = 1;
+    public static final int BUTTON_B = 2;
+    public static final int BUTTON_X = 3;
+    public static final int BUTTON_Y = 4; 
   }
 }

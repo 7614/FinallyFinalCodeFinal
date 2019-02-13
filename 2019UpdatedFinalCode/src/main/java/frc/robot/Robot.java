@@ -39,7 +39,7 @@ public class Robot extends TimedRobot {
   public static BallIntake ballIntake = new BallIntake();
   public static DriveTrain driveTrain = new DriveTrain();
   public static Flap flap = new Flap();
-  public static LimitSwitch limitSwitch = new LimitSwitch();
+  public static LimitSwitch flapLimitSwitch = new LimitSwitch();
   ArcadeDrive drive = new ArcadeDrive();
 
   Command m_autonomousCommand;

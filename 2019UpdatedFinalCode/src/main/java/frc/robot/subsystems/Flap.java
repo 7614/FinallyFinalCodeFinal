@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.PWMVictorSPX;
+import frc.robot.commands.*;
 
 
 public class Flap extends Subsystem {
@@ -17,12 +18,17 @@ public class Flap extends Subsystem {
   @Override
   protected void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+
+    //0 does nothing but it keeps running the command
+    setDefaultCommand(new MoveFlap(0));
   }
   public void erect(){
       motor1.set(1);
   }
   public void flaccid(){
       motor1.set(-1);
+  }
+  public void stop(){
+      motor1.set(0);
   }
 }

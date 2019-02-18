@@ -20,13 +20,13 @@ public class Flap extends Subsystem {
     // Set the default command for a subsystem here.
 
     //0 does nothing but it keeps running the command
-    setDefaultCommand(new MoveFlap(0));
+   // setDefaultCommand(new MoveFlap(0));
   }
   public void erect(){
-      motor1.set(1);
+      motor1.set(-1);
   }
   public void flaccid(){
-      motor1.set(-1);
+      motor1.set(1);
   }
   public void stop(){
       motor1.set(0);

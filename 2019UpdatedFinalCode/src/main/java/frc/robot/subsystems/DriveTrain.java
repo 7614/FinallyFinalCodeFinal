@@ -22,8 +22,7 @@ public class DriveTrain extends Subsystem {
     private SpeedControllerGroup rightGroup = new SpeedControllerGroup(rightFront, rightBack);
 
     // Connects the left an right motor controller groups to make a drive train
-    DifferentialDrive base_drive = new DifferentialDrive(leftGroup, rightGroup); // takes inputs of 2 motor controller
-                                                                                 // groups
+    DifferentialDrive base_drive = new DifferentialDrive(leftGroup, rightGroup); // takes inputs of 2 motor controller groups
 
     @Override
     protected void initDefaultCommand() {
@@ -43,6 +42,6 @@ public class DriveTrain extends Subsystem {
         // the first parameter is speed, the second angle of turn
         // the third parameter enables squared inputs, which "decreases sensitivity at
         // low speeds"
-        base_drive.arcadeDrive(xbox.getY(), xbox.getX(), true);
+        base_drive.arcadeDrive(-xbox.getY(Hand.kLeft), xbox.getX(Hand.kLeft), true);
     }
 }

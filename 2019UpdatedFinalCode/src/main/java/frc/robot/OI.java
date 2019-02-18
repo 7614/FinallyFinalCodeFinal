@@ -54,16 +54,17 @@ public class OI {
   
   XboxController xbox       = new XboxController(RobotMap.JOYSTICKPORT);
   
-  Button liftUpButton       = new JoystickButton(xbox, RobotMap.XBOX.BUMPER_R);
-  Button liftDownButton     = new JoystickButton(xbox, RobotMap.XBOX.BUMPER_L);
+  Button hatchUpButton       = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_Y);
+  Button hatchDownButton     = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_X);
   Button ballSuccButton     = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_A);
   Button ballBlowButton     = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_B);
-  Button releaseHatchButton = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_X);
  
 
   public OI() {
-    ballBlowButton.whenPressed(new BallSuccBlow(1));
-    ballBlowButton.whenPressed(new BallSuccBlow(-1));
-    // releaseHatchButton.whenPressed(new Release());
+    ballBlowButton.whileHeld(new BallSuccBlow(1));
+    ballSuccButton.whileHeld(new BallSuccBlow(-1));
+
+    hatchUpButton.whileHeld(new MoveFlap(1));
+    hatchDownButton.whileHeld(new MoveFlap(-1));
   }
 }

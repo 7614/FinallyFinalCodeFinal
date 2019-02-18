@@ -13,11 +13,11 @@ public class BallIntake extends Subsystem{
 
     }
     public void forwardMotor(){
-        motor.set(1);
+        motor.set(0.1);
     }
    
     public void backwardMotor(){
-        motor.set(-1);
+        motor.set(-0.1);
     }
    
     public void disableMotors(){

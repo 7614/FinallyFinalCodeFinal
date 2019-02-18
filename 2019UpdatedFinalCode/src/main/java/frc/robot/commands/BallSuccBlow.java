@@ -15,22 +15,22 @@ public class BallSuccBlow extends Command{
         this.succBlowMode=mode;
     }
 
-    
-    @Override
-    protected boolean isFinished(){
-        //just for now 
-        return false;
-
-    }
     @Override
     protected void execute(){
         
         if(this.succBlowMode==1){
             Robot.ballIntake.forwardMotor();
+            System.out.println("BallSUccForward");
        
         }else if(this.succBlowMode==-1){
          
             Robot.ballIntake.backwardMotor();
+            System.out.println("BallSuccBackward");
         }
+    }
+
+    @Override
+    protected boolean isFinished() {
+        return true;
     }
 }

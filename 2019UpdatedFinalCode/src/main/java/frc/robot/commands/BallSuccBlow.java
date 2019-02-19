@@ -4,15 +4,14 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 /**
- * Analog version of BallSuccBlow.
+ * Now using analog technology!
  */
-public class BallSuccBlow extends Command{
+public class BallSuccBlow extends Command {
 
     double dir;
 
     /**
-     * backk suck
-     * @param mode hi
+     * @param dir double in [-1,1], I hope. No error checking.
      */
     public BallSuccBlow(double dir){
         requires(Robot.ballIntake);
@@ -23,7 +22,7 @@ public class BallSuccBlow extends Command{
     protected void execute(){
         Robot.ballIntake.setMotor(dir);
     }
-
+    
     @Override
     protected boolean isFinished() {
         return true;

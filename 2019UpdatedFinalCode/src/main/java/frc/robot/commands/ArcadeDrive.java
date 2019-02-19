@@ -13,9 +13,6 @@ public class ArcadeDrive extends Command{
         requires(Robot.driveTrain);
     }
 
-  
-
-
     @Override
     protected boolean isFinished() {
         //the drive command should always be running: you should always

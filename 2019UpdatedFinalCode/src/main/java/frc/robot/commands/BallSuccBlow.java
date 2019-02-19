@@ -20,6 +20,7 @@ public class BallSuccBlow extends Command {
 
     @Override
     protected void execute(){
+<<<<<<< HEAD
         final double DEADZONE = 0.1;
 
         double right = Robot.m_oi.getRightTrigger();
@@ -35,6 +36,8 @@ public class BallSuccBlow extends Command {
         power = Math.max(Math.min(power ,1),-1);
 
         motor.set(power);
+=======
+>>>>>>> b735a0af41e4b09576e43d0820f0e7f65da694a8
     }
     
     @Override

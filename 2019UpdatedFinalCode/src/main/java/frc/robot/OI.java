@@ -63,6 +63,12 @@ public class OI {
   public OI() {
     hatchUpButton.whileHeld(new MoveFlap(1));
     hatchDownButton.whileHeld(new MoveFlap(-1));
+    hatchUpButton.whenPressed(new MoveFlap(1));
+    hatchDownButton.whenPressed(new MoveFlap(-1));
+
+    // cowardly refusing to include this code.
+    //ballSuccButton.whenReleased(new MoveFlap(0));
+    //ballSuccButton.whenReleased(new MoveFlap(0));
   }
 
   public double getRightTrigger(){

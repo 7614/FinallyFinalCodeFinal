@@ -2,34 +2,26 @@ package frc.robot.commands;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-public class BallSuccBlow extends Command{
 
-    int succBlowMode;
+/**
+ * Now using analog technology!
+ */
+public class BallSuccBlow extends Command {
+
+    double dir;
 
     /**
-     * backk suck
-     * @param mode hi
+     * @param dir double in [-1,1], I hope. No error checking.
      */
-    public BallSuccBlow(int mode){
+    public BallSuccBlow(double dir){
         requires(Robot.ballIntake);
-        this.succBlowMode=mode;
+        this.dir = dir;
     }
 
     @Override
     protected void execute(){
-        
-        if(this.succBlowMode==1){
-            Robot.ballIntake.forwardMotor();
-       
-        }else if(this.succBlowMode==-1){
-         
-            Robot.ballIntake.backwardMotor();
-        } else {
-            Robot.ballIntake.disableMotors();
-
-        }
     }
-
+    
     @Override
     protected boolean isFinished() {
         return true;

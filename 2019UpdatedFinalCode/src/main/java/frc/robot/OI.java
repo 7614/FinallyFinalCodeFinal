@@ -54,17 +54,22 @@ public class OI {
   
   XboxController xbox       = new XboxController(RobotMap.JOYSTICKPORT);
   
-  Button hatchUpButton       = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_Y);
-  Button hatchDownButton     = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_X);
+  Button hatchUpButton      = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_Y);
+  Button hatchDownButton    = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_X);
   Button ballSuccButton     = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_A);
   Button ballBlowButton     = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_B);
- 
+  
 
   public OI() {
-    ballBlowButton.whileHeld(new BallSuccBlow(1));
-    ballSuccButton.whileHeld(new BallSuccBlow(-1));
-
     hatchUpButton.whileHeld(new MoveFlap(1));
     hatchDownButton.whileHeld(new MoveFlap(-1));
+  }
+
+  public double getRightTrigger(){
+    return xbox.getTriggerAxis(Hand.kRight);
+  }
+
+  public double getLeftTrigger(){
+    return xbox.getTriggerAxis(Hand.kLeft);
   }
 }

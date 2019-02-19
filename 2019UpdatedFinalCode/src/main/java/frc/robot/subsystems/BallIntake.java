@@ -1,16 +1,17 @@
 package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.PWMVictorSPX;
-import edu.wpi.first.wpilibj.*;
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
+import frc.robot.commands.BallSuccBlow;
+
 public class BallIntake extends Subsystem{
     private PWMVictorSPX motor = new PWMVictorSPX(RobotMap.BALLINTAKE);
 
     @Override
-    protected void initDefaultCommand(){}
-    
+    protected void initDefaultCommand(){
+        setDefaultCommand(new BallSuccBlow(motor));
+    }
+
     public void setMotor(double power){
         motor.set(power);
     }

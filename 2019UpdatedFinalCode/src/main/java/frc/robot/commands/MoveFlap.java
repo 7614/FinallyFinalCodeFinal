@@ -19,7 +19,6 @@ public class MoveFlap extends Command {
   public MoveFlap(int direction) {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.flap);
-    requires(Robot.flapLimitSwitch);
     this.moveDir = direction;
   }
 
@@ -33,14 +32,14 @@ public class MoveFlap extends Command {
   protected void execute() {
     // If the forward limit switch is pressed, we want to keep the values between -1
     // and 0
-    if (Robot.flapLimitSwitch.flapUpperLimitSwitch.get()) {
-      moveDir = Math.min(moveDir, 0);
-    }
-    // If the reversed limit switch is pressed, we want to keep the values between 0
-    // and 1
-    else if (Robot.flapLimitSwitch.flapLowerLimitSwitch.get()) {
-      moveDir = Math.max(moveDir, 0);
-    }
+    // if (Robot.flapLimitSwitch.flapUpperLimitSwitch.get()) {
+    //   moveDir = Math.min(moveDir, 0);
+    // }
+    // // If the reversed limit switch is pressed, we want to keep the values between 0
+    // // and 1
+    // else if (Robot.flapLimitSwitch.flapLowerLimitSwitch.get()) {
+    //   moveDir = Math.max(moveDir, 0);
+    // }
     switch (moveDir) {
     case 1:
       Robot.flap.erect();

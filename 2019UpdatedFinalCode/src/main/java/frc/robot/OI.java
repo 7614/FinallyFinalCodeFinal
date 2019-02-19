@@ -58,13 +58,17 @@ public class OI {
   Button hatchDownButton     = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_X);
   Button ballSuccButton     = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_A);
   Button ballBlowButton     = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_B);
- 
 
   public OI() {
-    ballBlowButton.whileHeld(new BallSuccBlow(1));
-    ballSuccButton.whileHeld(new BallSuccBlow(-1));
+    ballBlowButton.whenPressed(new BallSuccBlow(1));
+    ballSuccButton.whenPressed(new BallSuccBlow(-1));
+    ballSuccButton.whenReleased(new BallSuccBlow(0));
+    ballSuccButton.whenReleased(new BallSuccBlow(0));
 
-    hatchUpButton.whileHeld(new MoveFlap(1));
-    hatchDownButton.whileHeld(new MoveFlap(-1));
+
+    hatchUpButton.whenPressed(new MoveFlap(1));
+    hatchDownButton.whenPressed(new MoveFlap(-1));
+    ballSuccButton.whenReleased(new MoveFlap(0));
+    ballSuccButton.whenReleased(new MoveFlap(0));
   }
 }

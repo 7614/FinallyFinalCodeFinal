@@ -20,12 +20,13 @@ public class BallSuccBlow extends Command{
         
         if(this.succBlowMode==1){
             Robot.ballIntake.forwardMotor();
-            System.out.println("BallSUccForward");
        
         }else if(this.succBlowMode==-1){
          
             Robot.ballIntake.backwardMotor();
-            System.out.println("BallSuccBackward");
+        } else {
+            Robot.ballIntake.disableMotors();
+
         }
     }
 

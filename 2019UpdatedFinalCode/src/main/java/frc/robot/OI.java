@@ -63,9 +63,6 @@ public class OI {
   public OI() {
     hatchUpButton.whileHeld(new RaiseFlap());
     hatchDownButton.whileHeld(new LowerFlap());
-
-
-
   }
 
   public double getRightTrigger(){

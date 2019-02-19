@@ -8,12 +8,13 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.robot.Robot;
 
 /**
  * An example command. You can replace me with your own command.
  */
-public class LowerFlap extends Command {
+public class LowerFlap extends InstantCommand {
 
   public LowerFlap() {
     // Use requires() here to declare subsystem dependencies
@@ -29,7 +30,6 @@ public class LowerFlap extends Command {
   @Override
   protected void execute() {
     Robot.flap.setPower(0.5);
-    end();
   }
 
   // Make this return true when this Command no longer needs to run execute()

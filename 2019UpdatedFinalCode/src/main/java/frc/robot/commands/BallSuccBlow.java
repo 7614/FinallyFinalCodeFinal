@@ -2,31 +2,26 @@ package frc.robot.commands;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+
+/**
+ * Analog version of BallSuccBlow.
+ */
 public class BallSuccBlow extends Command{
 
-    int succBlowMode;
+    double dir;
 
     /**
      * backk suck
      * @param mode hi
      */
-    public BallSuccBlow(int mode){
+    public BallSuccBlow(double dir){
         requires(Robot.ballIntake);
-        this.succBlowMode=mode;
+        this.dir = dir;
     }
 
     @Override
     protected void execute(){
-        
-        if(this.succBlowMode==1){
-            Robot.ballIntake.forwardMotor();
-            System.out.println("BallSUccForward");
-       
-        }else if(this.succBlowMode==-1){
-         
-            Robot.ballIntake.backwardMotor();
-            System.out.println("BallSuccBackward");
-        }
+        Robot.ballIntake.setMotor(dir);
     }
 
     @Override

@@ -9,18 +9,14 @@ public class BallIntake extends Subsystem{
     private PWMVictorSPX motor = new PWMVictorSPX(RobotMap.BALLINTAKE);
 
     @Override
-    protected void initDefaultCommand(){
-
+    protected void initDefaultCommand(){}
+    
+    public void setMotor(double power){
+        motor.set(power);
     }
-    public void forwardMotor(){
-        motor.set(0.1);
-    }
-   
-    public void backwardMotor(){
-        motor.set(-0.1);
-    }
-   
-    public void disableMotors(){
+    
+    public void kill(){
+        // TODO: Why is this twice?
         motor.set(0);
         motor.set(0);
     }

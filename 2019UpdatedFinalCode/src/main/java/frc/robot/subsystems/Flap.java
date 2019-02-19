@@ -23,12 +23,16 @@ public class Flap extends Subsystem {
    // setDefaultCommand(new MoveFlap(0));
   }
   public void erect(){
-      motor1.set(-1);
+      motor1.set(-0.5);
   }
   public void flaccid(){
-      motor1.set(1);
+      motor1.set(0.5);
   }
   public void stop(){
       motor1.set(0);
+  }
+
+  public void setPower(double power){
+      motor1.set(power);
   }
 }

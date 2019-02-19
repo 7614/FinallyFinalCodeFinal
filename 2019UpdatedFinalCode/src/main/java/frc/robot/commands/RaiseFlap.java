@@ -13,22 +13,11 @@ import frc.robot.Robot;
 /**
  * An example command. You can replace me with your own command.
  */
-public class MoveFlap extends Command {
+public class RaiseFlap extends Command {
 
-  public MoveFlap(int direction) {
+  public RaiseFlap() {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.flap);
-    switch (direction) {
-      case 1:
-        Robot.flap.erect();
-        break;
-      case -1:
-        Robot.flap.flaccid();
-        break;
-      case 0:
-        Robot.flap.stop();
-        break;
-      }
   }
 
   // Called just before this Command runs the first time
@@ -39,17 +28,8 @@ public class MoveFlap extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    // If the forward limit switch is pressed, we want to keep the values between -1
-    // and 0
-    // if (Robot.flapLimitSwitch.flapUpperLimitSwitch.get()) {
-    //   moveDir = Math.min(moveDir, 0);
-    // }
-    // // If the reversed limit switch is pressed, we want to keep the values between 0
-    // // and 1
-    // else if (Robot.flapLimitSwitch.flapLowerLimitSwitch.get()) {
-    //   moveDir = Math.max(moveDir, 0);
-    // }
-    
+    Robot.flap.setPower(-0.5);
+    end();
   }
 
   // Make this return true when this Command no longer needs to run execute()

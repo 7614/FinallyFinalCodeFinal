@@ -51,6 +51,7 @@ public class Robot extends TimedRobot {
     m_oi = new OI();
     System.out.println(m_oi.xbox.getPort());
     CameraServer.getInstance().startAutomaticCapture();
+    CameraServer.getInstance().startAutomaticCapture();
 
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);

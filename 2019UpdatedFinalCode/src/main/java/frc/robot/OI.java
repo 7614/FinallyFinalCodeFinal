@@ -48,19 +48,22 @@ public class OI {
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
-  public XboxController getXbox(){
+  public XboxController getJoystick(){
     return this.xbox;
   }
   
   XboxController xbox       = new XboxController(RobotMap.JOYSTICKPORT);
-  
+
+
   Button hatchUpButton      = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_Y);
   Button hatchDownButton    = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_X);
-  Button ballSuccButton     = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_A);
-  Button ballBlowButton     = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_B);
-  
+Button turboButton = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_B);
+
+  public Boolean turboOn=false;
 
   public OI() {
+    turboButton.whenReleased(new ToggleTurbo());;
+
     hatchUpButton.whenPressed(new RaiseFlap());
     hatchDownButton.whenPressed(new LowerFlap());
 
@@ -75,4 +78,6 @@ public class OI {
   public double getLeftTrigger(){
     return xbox.getTriggerAxis(Hand.kLeft);
   }
+
+ 
 }

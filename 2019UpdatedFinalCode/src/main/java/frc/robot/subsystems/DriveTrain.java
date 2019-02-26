@@ -6,6 +6,7 @@ import frc.robot.commands.*;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import frc.robot.Robot;
 import frc.robot.RobotMap;
 
 public class DriveTrain extends Subsystem {
@@ -42,6 +43,11 @@ public class DriveTrain extends Subsystem {
         // the first parameter is speed, the second angle of turn
         // the third parameter enables squared inputs, which "decreases sensitivity at
         // low speeds
-        base_drive.arcadeDrive(-xbox.getY(Hand.kLeft), xbox.getX(Hand.kLeft), true);
+        if(Robot.m_oi.turboOn){
+            base_drive.arcadeDrive(-xbox.getY(Hand.kLeft), xbox.getX(Hand.kLeft), true);
+        }else{
+            base_drive.arcadeDrive(-xbox.getY(Hand.kLeft)/10, xbox.getX(Hand.kLeft)/10, true);
+        }
+        
     }
 }

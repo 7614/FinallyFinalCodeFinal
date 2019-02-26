@@ -29,6 +29,7 @@ public class RaiseFlap extends InstantCommand {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    //System.out.println("RaiseFlap.execute()");
     Robot.flap.setPower(-0.5);
   }
 

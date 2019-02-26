@@ -27,7 +27,7 @@ public class ArcadeDrive extends Command{
     @Override
     protected void execute(){
         //calls the function of the drive train, which will call an arcade drive method
-        Robot.driveTrain.teleopDrive(Robot.m_oi.getJoystick());
+        Robot.driveTrain.teleopDrive(Robot.m_oi.getXbox());
     }
 
 }

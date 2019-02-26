@@ -11,6 +11,8 @@ public class BallSuccBlow extends Command {
 
     PWMSpeedController motor;
 
+    public static double DEFANG = 1.5;
+
     /**
      * @param dir double in [-1,1], I hope. No error checking.
      */
@@ -21,15 +23,20 @@ public class BallSuccBlow extends Command {
 
     @Override
     protected void execute(){
-        final double DEADZONE = 0.1;
+        final double DEADZONE = 0.01;
 
         double right = Robot.m_oi.getRightTrigger();
         double left  = Robot.m_oi.getLeftTrigger();
         
+        right = Math.pow(right,4);
+        left = Math.pow(left,4);
+
         if(right < DEADZONE) right = 0;
         if(left  < DEADZONE) left = 0;
         
         double power = (left - right)*2;
+
+        power /= DEFANG;
 
         // clamp into [-1,1]
         // https://stackoverflow.com/questions/16656651/

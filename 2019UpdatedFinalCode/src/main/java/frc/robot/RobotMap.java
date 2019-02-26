@@ -30,7 +30,7 @@ public class RobotMap {
     public static final int BACKRIGHT = 9;
     public static final int BACKLEFT = 0;
   }
-  public static final int JOYSTICKPORT = 1;
+  public static final int JOYSTICKPORT = 0;
   public static final int BALLINTAKE = 7;
   public static final int FLAPUPPERLIMITSWITCH = 3;
   public static final int FLAPLOWERLIMITSWITCH = 4;

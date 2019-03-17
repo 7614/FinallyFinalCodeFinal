@@ -44,9 +44,20 @@ public class DriveTrain extends Subsystem {
         // the third parameter enables squared inputs, which "decreases sensitivity at
         // low speeds
         if(Robot.m_oi.turboOn){
-            base_drive.arcadeDrive(-xbox.getY(Hand.kLeft), xbox.getX(Hand.kLeft), true);
+            System.err.printf("turbo");
+            base_drive.arcadeDrive(
+                -xbox.getY(Hand.kLeft),
+                xbox.getX(Hand.kLeft),
+                true
+            );
         }else{
-            base_drive.arcadeDrive(-xbox.getY(Hand.kLeft)/10, xbox.getX(Hand.kLeft)/10, true);
+            System.err.printf("slow");
+            double DEFANG = 5;
+            base_drive.arcadeDrive(
+                -xbox.getY(Hand.kLeft)/DEFANG,
+                xbox.getX(Hand.kLeft)/DEFANG,
+                false
+            );
         }
         
     }

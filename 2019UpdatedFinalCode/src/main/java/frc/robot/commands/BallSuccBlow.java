@@ -23,18 +23,20 @@ public class BallSuccBlow extends Command {
 
     @Override
     protected void execute(){
-        final double DEADZONE = 0.01;
+        final double DEADZONE = 0.00;
 
         double right = Robot.m_oi.getRightTrigger();
         double left  = Robot.m_oi.getLeftTrigger();
         
-        right = Math.pow(right,4);
-        left = Math.pow(left,4);
+        right = Math.pow(right,1);
+        left = Math.pow(left,1);
 
         if(right < DEADZONE) right = 0;
         if(left  < DEADZONE) left = 0;
         
         double power = (left - right)*2;
+
+        
 
         power /= DEFANG;
 

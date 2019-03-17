@@ -35,6 +35,7 @@ public class RobotMap {
   public static final int FLAPUPPERLIMITSWITCH = 3;
   public static final int FLAPLOWERLIMITSWITCH = 4;
   public static final int HATCHMOTOR =2;
+  
 
   public class XBOX {
     // Digital

@@ -13,7 +13,6 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.*;
-import frc.robot.commands.BallSuccBlow;
 import frc.robot.commands.*;
 
 /**
@@ -57,6 +56,10 @@ public class OI {
 
   Button hatchUpButton      = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_Y);
   Button hatchDownButton    = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_X);
+
+  Button pistonPushButton   = new JoystickButton(xbox, RobotMap.XBOX.BUMPER_L);
+  Button pistonPullButton   = new JoystickButton(xbox, RobotMap.XBOX.BUMPER_R);
+
 Button turboButton = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_B);
 
   public Boolean turboOn=false;
@@ -69,6 +72,12 @@ Button turboButton = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_B);
 
     hatchDownButton.whenReleased(new StopFlap());
     hatchUpButton.whenReleased(new StopFlap());
+
+    pistonPushButton.whenPressed(new PushPiston());
+    pistonPullButton.whenPressed(new PullPiston());
+
+    pistonPushButton.whenReleased(new StopPiston());
+    pistonPullButton.whenReleased(new StopPiston());
   }
 
   public double getRightTrigger(){

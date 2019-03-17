@@ -7,21 +7,22 @@
 
 package frc.robot;
 
+import org.opencv.core.Rect;
+import org.opencv.imgproc.Imgproc;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
+import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.*;
-
+import edu.wpi.first.vision.VisionRunner;
+import edu.wpi.first.vision.VisionThread;
 import frc.robot.OI;
-
-
-
 import frc.robot.commands.ArcadeDrive;
 
 import frc.robot.subsystems.*;
+import frc.robot.subsystems.Solenoid;
 
 
 /**
@@ -37,10 +38,21 @@ public class Robot extends TimedRobot {
   public static DriveTrain driveTrain = new DriveTrain();
   public static Flap flap = new Flap();
   public static LimitSwitch flapLimitSwitch = new LimitSwitch();
+  public static Solenoid solenoid = new Solenoid();
+
   ArcadeDrive drive = new ArcadeDrive();
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
+
+
+  private static final int IMG_WIDTH = 320;
+	private static final int IMG_HEIGHT = 240;
+	
+	private VisionThread visionThread;
+	private double centerX = 0.0;
+	
+	private final Object imgLock = new Object();
 
   /**
    * This function is run when the robot is first started up and should be
@@ -50,8 +62,23 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     m_oi = new OI();
     System.out.println(m_oi.xbox.getPort());
-    CameraServer.getInstance().startAutomaticCapture();
-    CameraServer.getInstance().startAutomaticCapture();
+      
+    UsbCamera frontCamera = CameraServer.getInstance().startAutomaticCapture();
+    UsbCamera backCamera = CameraServer.getInstance().startAutomaticCapture();
+      frontCamera.setResolution(IMG_WIDTH, IMG_HEIGHT);
+      visionThread = new VisionThread(frontCamera, new SeeBluePipeLine(), pipeline -> {
+
+        if (!pipeline.filterContoursOutput().isEmpty()) {
+            Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
+            synchronized (imgLock) {
+                centerX = r.x + (r.width / 2);
+            }
+        }
+    });
+
+    
+    visionThread.start();
+
 
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);

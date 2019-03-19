@@ -66,9 +66,14 @@ public class Robot extends TimedRobot {
     UsbCamera frontCamera = CameraServer.getInstance().startAutomaticCapture();
     UsbCamera backCamera = CameraServer.getInstance().startAutomaticCapture();
       frontCamera.setResolution(IMG_WIDTH, IMG_HEIGHT);
-      visionThread = new VisionThread(frontCamera, new SeeBluePipeLine(), pipeline -> {
 
+      
+
+      visionThread = new VisionThread(frontCamera, new SeeNehaGreenScissorPipeline(), pipeline -> {
+
+        
         if (!pipeline.filterContoursOutput().isEmpty()) {
+          
             Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
             synchronized (imgLock) {
                 centerX = r.x + (r.width / 2);
@@ -143,6 +148,14 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousPeriodic() {
+    double centerX;
+    synchronized (imgLock) {
+        centerX = this.centerX;
+    }
+    double turn = centerX - (IMG_WIDTH / 2);
+    //work from here
+    drive.arcadeDrive(-0.6, turn * 0.005);
+    
     Scheduler.getInstance().run();
   }
 

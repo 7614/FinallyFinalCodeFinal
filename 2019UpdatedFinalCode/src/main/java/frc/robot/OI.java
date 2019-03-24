@@ -57,15 +57,15 @@ public class OI {
   Button hatchUpButton      = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_Y);
   Button hatchDownButton    = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_X);
 
-  Button pistonPushButton   = new JoystickButton(xbox, RobotMap.XBOX.BUMPER_L);
-  Button pistonPullButton   = new JoystickButton(xbox, RobotMap.XBOX.BUMPER_R);
+  Button pistonPushButton   = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_A);
+  Button pistonPullButton   = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_B);
 
-Button turboButton = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_B);
+//Button turboButton = new JoystickButton(xbox, RobotMap.XBOX.BUTTON_B);
 
-  public Boolean turboOn=false;
+  public Boolean turboOn=true;
 
   public OI() {
-    turboButton.whenReleased(new ToggleTurbo());;
+    //turboButton.whenReleased(new ToggleTurbo());;
 
     hatchUpButton.whenPressed(new RaiseFlap());
     hatchDownButton.whenPressed(new LowerFlap());

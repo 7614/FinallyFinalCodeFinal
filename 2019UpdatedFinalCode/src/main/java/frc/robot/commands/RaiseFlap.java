@@ -30,7 +30,7 @@ public class RaiseFlap extends InstantCommand {
   @Override
   protected void execute() {
     //System.out.println("RaiseFlap.execute()");
-    Robot.flap.setPower(-0.5);
+    Robot.flap.erect();
   }
 
   // Make this return true when this Command no longer needs to run execute()

@@ -14,11 +14,17 @@ import edu.wpi.first.wpilibj.*;
 /**
  * An example subsystem. You can replace me with your own Subsystem.
  */
-public class Solenoid extends Subsystem {
+public class AirSystem extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-    DoubleSolenoid pistonSolenoid = new DoubleSolenoid(RobotMap.SOLENOIDFORWARD, RobotMap.SOLENOIDREVERSE);
+    DoubleSolenoid pistonSolenoid = new DoubleSolenoid(2, 4);
+    public static Compressor compressor = new Compressor();
+
+    public AirSystem(){
+        compressor.start();
+    }
+
 
     @Override
     public void initDefaultCommand() {

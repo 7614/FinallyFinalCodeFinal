@@ -39,6 +39,7 @@ public class Robot extends TimedRobot {
   public static Flap flap = new Flap();
   public static LimitSwitch flapLimitSwitch = new LimitSwitch();
   public static Solenoid solenoid = new Solenoid();
+  //public static AirSystem solenoid = new AirSystem();
 
   ArcadeDrive drive = new ArcadeDrive();
 
@@ -65,24 +66,24 @@ public class Robot extends TimedRobot {
       
     UsbCamera frontCamera = CameraServer.getInstance().startAutomaticCapture();
     UsbCamera backCamera = CameraServer.getInstance().startAutomaticCapture();
-      frontCamera.setResolution(IMG_WIDTH, IMG_HEIGHT);
+    //   frontCamera.setResolution(IMG_WIDTH, IMG_HEIGHT);
 
       
 
-      visionThread = new VisionThread(frontCamera, new SeeNehaGreenScissorPipeline(), pipeline -> {
+    //   visionThread = new VisionThread(frontCamera, new SeeNehaGreenScissorPipeline(), pipeline -> {
 
         
-        if (!pipeline.filterContoursOutput().isEmpty()) {
+    //     if (!pipeline.filterContoursOutput().isEmpty()) {
           
-            Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
-            synchronized (imgLock) {
-                centerX = r.x + (r.width / 2);
-            }
-        }
-    });
+    //         Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
+    //         synchronized (imgLock) {
+    //             centerX = r.x + (r.width / 2);
+    //         }
+    //     }
+    // });
 
     
-    visionThread.start();
+    // visionThread.start();
 
 
     // chooser.addOption("My Auto", new MyAutoCommand());
@@ -148,13 +149,13 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousPeriodic() {
-    double centerX;
-    synchronized (imgLock) {
-        centerX = this.centerX;
-    }
-    double turn = centerX - (IMG_WIDTH / 2);
-    //work from here
-    drive.arcadeDrive(-0.6, turn * 0.005);
+    // double centerX;
+    // synchronized (imgLock) {
+    //     centerX = this.centerX;
+    // }
+    // double turn = centerX - (IMG_WIDTH / 2);
+    // //work from here
+    // drive.arcadeDrive(-0.6, turn * 0.005);
     
     Scheduler.getInstance().run();
   }

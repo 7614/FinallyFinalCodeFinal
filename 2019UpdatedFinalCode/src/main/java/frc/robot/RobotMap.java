@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.GenericHID.Hand;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -35,6 +37,9 @@ public class RobotMap {
   public static final int FLAPUPPERLIMITSWITCH = 3;
   public static final int FLAPLOWERLIMITSWITCH = 4;
   public static final int HATCHMOTOR =2;
+
+  public static final int SOLENOIDFORWARD = 2;
+  public static final int SOLENOIDREVERSE = 4;
   
 
   public class XBOX {
@@ -49,5 +54,7 @@ public class RobotMap {
     // Analog
     public static final int TRIGGER_R = 3;
     public static final int TRIGGER_L = 4;
+
+    public  final Hand TANKDRIVEJOYSTICK = Hand.kLeft; 
   }
 }

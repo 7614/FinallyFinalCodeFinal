@@ -47,15 +47,15 @@ public class DriveTrain extends Subsystem {
             System.err.printf("turbo");
             base_drive.arcadeDrive(
                 -xbox.getY(Hand.kLeft),
-                xbox.getX(Hand.kLeft),
+                xbox.getX(Hand.kLeft)/1.5,
                 true
             );
         }else{
             System.err.printf("slow");
             double DEFANG = 5;
             base_drive.arcadeDrive(
-                -xbox.getY(Hand.kLeft)/DEFANG,
-                xbox.getX(Hand.kLeft)/DEFANG,
+                xbox.getX(Hand.kRight)/DEFANG,
+                xbox.getY(Hand.kRight)/DEFANG,
                 false
             );
         }

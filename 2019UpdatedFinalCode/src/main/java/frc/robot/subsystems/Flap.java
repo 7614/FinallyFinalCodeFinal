@@ -32,7 +32,5 @@ public class Flap extends Subsystem {
       motor1.set(0);
   }
 
-  public void setPower(double power){
-      motor1.set(power);
-  }
+ 
 }

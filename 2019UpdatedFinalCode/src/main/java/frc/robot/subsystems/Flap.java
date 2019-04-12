@@ -22,10 +22,10 @@ public class Flap extends Subsystem {
     //0 does nothing but it keeps running the command
    // setDefaultCommand(new MoveFlap(0));
   }
-  public void erect(){
+  public void lift(){
       motor1.set(-0.5);
   }
-  public void flaccid(){
+  public void drop(){
       motor1.set(0.5);
   }
   public void stop(){

@@ -39,7 +39,7 @@ public class Robot extends TimedRobot {
   public static Flap flap = new Flap();
   public static LimitSwitch flapLimitSwitch = new LimitSwitch();
   public static Solenoid solenoid = new Solenoid();
-  public static AirSystem solenoid = new AirSystem();
+  public static AirSystem solenoid1 = new AirSystem();
 
   ArcadeDrive drive = new ArcadeDrive();
 
